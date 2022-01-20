@@ -13,8 +13,20 @@ class LifeCycle extends Component {
     }
 
     componentDidMount() {
-        console.log(`Etape ${this.state.step} : Je suis dans le componentDidMount()`)
+        console.log(`Etape ${this.state.step} : Je suis dans le componentDidMount()`);
+        this.setState({
+            name: this.props.name,
+            step: this.state.step + 1
+        })
+        console.log(`Etape ${this.state.step} : setState() a changé le state dans le componentDidMont()`);
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(`Etape ${this.state.step} : Je suis dans le componentDidUpdate()`);
+        console.log(prevState);
+        console.log(this.state)
+    }
+
     
     render() {
         console.log(`Etape ${this.state.step} : Je suis dans le render()`)
